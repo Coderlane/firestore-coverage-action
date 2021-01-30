@@ -1,0 +1,24 @@
+name: Firestore Coverage
+description: Fetch coverage data from a Firestore emulator and convert it to Codecov.io format
+branding:
+  color: orange
+  icon: download-cloud
+inputs:
+  project_id:
+    description: The project ID to collect coverage data from
+    required: true
+  rule_file:
+    description: The firestore rule file to collect coverage for
+    required: false
+    default: firestore.rules
+  input_file:
+    description: An optional firestore coverage file for input. Use this option
+      instead of `project_id` if the server won't be running when you collect.
+    required: false
+  output_file:
+    description: The file to output coverage data to
+    required: false
+    default: ./coverage.json
+runs:
+  using: node12
+  main: dist/index.js
